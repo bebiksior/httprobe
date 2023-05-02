@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"crypto/tls"
 	"flag"
+	"io"
+	"io/ioutil"
 	"fmt"
 	"net"
 	"net/http"
@@ -227,8 +229,12 @@ func isListening(client *http.Client, url string, method string) (int, bool) {
 		return 0, false
 	}
 
+	req.Header.Add("Connection", "close")
+	req.Close = true
+
 	resp, err := client.Do(req)
 	if err == nil {
+		io.Copy(ioutil.Discard, resp.Body)
 		resp.Body.Close()
 		return resp.StatusCode, true
 	}
