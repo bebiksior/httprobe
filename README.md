@@ -8,12 +8,9 @@ I made a modification to include the status code in the output when using the `-
 
 ```
 ▶ cat recon/example/domains.txt | httprobe -status-code
-http://example.com 301
-http://example.net 200
-http://example.edu 404
-https://example.com 200
-https://example.edu 403
-https://example.net 301
+200 http://example.com
+403 http://admin.example.com
+302 http://redirect.example.com
 ```
 
 ## Install
