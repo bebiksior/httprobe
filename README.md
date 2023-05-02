@@ -2,6 +2,20 @@
 
 Take a list of domains and probe for working http and https servers.
 
+## My contribution
+
+I made a modification to include the status code in the output when using the `-status-code` flag. Here's an example of the new output:
+
+```
+▶ cat recon/example/domains.txt | httprobe -status-code
+http://example.com 301
+http://example.net 200
+http://example.edu 404
+https://example.com 200
+https://example.edu 403
+https://example.net 301
+```
+
 ## Install
 
 ```
