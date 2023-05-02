@@ -16,7 +16,7 @@ I made a modification to include the status code in the output when using the `-
 ## Install
 
 ```
-▶ go install github.com/tomnomnom/httprobe@latest
+go install github.com/bebiksior/httprobe-sc@latest
 ```
 
 ## Basic Usage
